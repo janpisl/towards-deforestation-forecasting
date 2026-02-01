@@ -94,3 +94,12 @@ src/
 
 
 
+
+### Set up Python environment
+
+Create the conda environment from the provided `environment.yaml`:
+
+```bash
+conda env create -f environment.yaml -p ./towards-deforestation-forecasting
+conda activate ./towards-deforestation-forecasting
+
