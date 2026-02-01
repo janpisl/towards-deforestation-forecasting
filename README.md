@@ -3,7 +3,7 @@
 # Towards high-resolution forecasting of tropical deforestation with deep learning
 
 
-**Jan Jan Pišl<sup>*,1</sup>**, **Gencer Sumbul<sup>1</sup>**, **Gaston Lenczner<sup>1</sup>**, **Jan Dirk Wegner<sup>2</sup>**, **Devis Tuia<sup>1</sup>** 
+**Jan Pišl<sup>1</sup>**, **Gencer Sumbul<sup>1</sup>**, **Gaston Lenczner<sup>1</sup>**, **Jan Dirk Wegner<sup>2</sup>**, **Devis Tuia<sup>*,1</sup>** 
 
 <sup>1</sup> ECEO, École Polytechnique Fédérale de Lausanne (EPFL), Sion, Switzerland
 <sup>2</sup> DM3L, University of Zurich, Switzerland
