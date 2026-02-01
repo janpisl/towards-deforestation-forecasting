@@ -1,0 +1,81 @@
+
+{
+    "annotation_file": ["data/annotation.csv"],
+    "data" : [{
+        "deforestation_map" : "data/inputs/deforestation_maps",
+        "elevation" : "data/inputs/elevation.tif",
+        "lulc" : "data/inputs/lulc"
+        }],
+
+    "inputs" : [
+        ["deforestation_map","elevation", "lulc"]
+
+    ],
+    "output_folder":  ["models_trained/"],
+    "input_patch_size": [50],
+    "evaluated_patch_size": [50],
+    "device" : ["cuda"],
+    "num_workers" : [32],
+    "seed": [54],
+    "epochs": [1000],
+    "early_stopping": [{"patience" : 10, "metric" : "val_loss", "metric_direction" : "desc"}],
+    "batch_size": [64],
+    "learning_rate": [0.0002],
+    "weight_decay": [0],
+    "randomize_labels": ["False"],
+
+    "train_on_subsequences" : ["True"],
+    "model" : [
+        {
+        "model_name" : "convlstmseg",
+        "params" : {
+            "hidden_dim" : [12, 16, 20,24, 20, 16, 12],
+            "kernel_size" : [7,7],
+            "num_layers" : 7,
+            "return_all_layers" : "True",
+            "conv_kernel_size" : [1,1],
+            "activation" : "relu",
+            "lulc_out_channels" : 3
+            }
+        }
+    ],
+
+    "loss_fn" : [
+
+    {
+        "name" : "combined",
+        "params" : {
+            "bce_pos_weight" : 3,
+            "bce_alpha" : 0.5
+        }
+    }
+
+
+        ],
+    "min_pos_years_train": [3],
+    "min_pos_years_val": [1],
+    "train_period" : [
+        {
+            "year_min" : 2011,
+            "year_max" : 2016,
+            "input_seq_len" : 4
+        }
+    ],
+
+    "val_period" : [
+        {
+        "year_min" : 2011,
+        "year_max" : 2016,
+        "input_seq_len" : 4
+        }
+    ],
+
+    "wandb": [{
+        "log_to_wandb" : "False",
+        "log_train_metrics_by_year" : "False",
+        "project" : "proj_3",
+        "entity" : "janpisl",
+        "group": ""
+    }]
+}
+
